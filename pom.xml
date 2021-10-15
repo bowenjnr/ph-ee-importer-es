@@ -6,22 +6,18 @@
 	<groupId>hu.dpc.phee</groupId>
 	<artifactId>importer-es</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
-
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven-shade-plugin.version>3.2.2</maven-shade-plugin.version>
-
 		<zeebe.version>0.25.1</zeebe.version>
 		<kafka-streams.version>2.4.0</kafka-streams.version>
 		<elasticsearch.version>7.6.0</elasticsearch.version>
 		<json.version>20190722</json.version>
 	</properties>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -33,13 +29,19 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>io.zeebe</groupId>
 			<artifactId>zeebe-elasticsearch-exporter</artifactId>
 			<version>${zeebe.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>elasticsearch-rest-high-level-client</artifactId>
+			<version>${elasticsearch.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -64,7 +66,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
